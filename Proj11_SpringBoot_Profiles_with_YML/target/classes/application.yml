@@ -1,0 +1,54 @@
+# Active profile configuration
+spring:
+  profiles:
+    active: prod
+
+# Development profile configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql:///sbms_db1
+    username: root
+    password: Albert9313@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: org.apache.commons.dbcp2.BasicDataSource
+
+# Production profile configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: system
+    password: Albert93132@
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+# UAT profile configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: uat
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: system
+    password: Albert93132@
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+# Test profile configuration
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:mysql:///sbms_db1
+    username: root
+    password: Albert9313@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
